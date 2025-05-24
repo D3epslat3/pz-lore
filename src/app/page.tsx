@@ -46,36 +46,8 @@ export default function Home() {
   }
 
   const loreText = `
-**Personalidade**
 
-Najimi tem um coração enorme e uma impressionante capacidade de conexão com seus pacientes. Trabalhando como médico em um hospital agitado de Tóquio, desenvolveu um olhar atento e uma empatia natural, sempre pronto para estender a mão a quem precisa. O que mais chama atenção em Najimi é como consegue se adaptar a cada situação – firme quando necessário, acolhedor quando apropriado. Essa adaptabilidade, cultivada ao longo da vida, se reflete até em sua expressão de gênero intencionalmente ambígua, permitindo que seja exatamente o que cada pessoa precisa nos momentos de fragilidade.
-
-**Maiores medos e traumas**
-
-O coração de Najimi ainda carrega a dor de ter perdido o pai aos 10 anos, vítima de uma doença que os médicos não conseguiram diagnosticar a tempo. Essa perda profunda despertou nele dois grandes medos: falhar com aqueles que dependem de seus conhecimentos e sentir-se impotente diante do incontrolável. Após o fim do mundo como conhecíamos, esses medos só cresceram – agora, Najimi vive com o pavor de não conseguir salvar vidas por falta de recursos e de ver seu conhecimento se tornar obsoleto diante das novas doenças que surgiram após o colapso.
-
-**Valores e princípios**
-
-"Cure quando puder, conforte quando não puder" – essa é a adaptação que Najimi fez do clássico princípio hipocrático para os tempos difíceis em que vive. Acredita, do fundo do coração, que medicina vai muito além de salvar vidas; trata-se de preservar a dignidade humana mesmo nas piores circunstâncias. Valoriza a honestidade compassiva – dizer a verdade sem destruir a esperança. Mesmo quando os recursos são escassos, mantém-se fiel ao princípio de que todos merecem cuidados, independentemente de quem sejam ou do que tenham feito antes.
-
-**Papel social**
-
-No fundo, Najimi é um líder por natureza, mas do tipo que serve aos outros. Nos tempos de hospital, não buscava cargos de chefia, mas era a quem todos recorriam durante emergências. Em meio ao caos, assume naturalmente o comando, distribuindo tarefas e mantendo a calma quando tudo parece desmoronar. Sua liderança não vem da busca por poder, mas da consciência de que seu conhecimento salva vidas quando aplicado no momento certo. Por isso, até os mais desconfiados acabam seguindo suas orientações, reconhecendo que Najimi age por dever e amor ao próximo, nunca por ambição pessoal.
-
-**Maiores habilidades práticas**
-
-- **Medicina generalista:** Seu treinamento como médico de emergência e clínica geral se tornou um tesouro inestimável após o colapso.
-- **Medicina improvisada:** Desenvolveu o dom de criar soluções médicas com o mínimo disponível, habilidade aperfeiçoada durante períodos de escassez.
-- **Diagnóstico rápido:** Anos no pronto-socorro o transformaram em alguém capaz de identificar problemas graves com pouquíssima informação.
-- **Farmacologia prática:** Conhece profundamente medicamentos, seus substitutos e alternativas quando o ideal não está à mão.
-- **Procedimentos básicos:** Domina suturas e cirurgias menores, resultado de incontáveis horas de plantão.
-- **Gerenciamento de crise:** Mantém a serenidade e toma decisões rápidas no olho do furacão, qualidade forjada no ambiente hospitalar.
-
-**Orientação moral**
-
-O coração pacifista de Najimi resiste até mesmo ao fim do mundo. Mantém firme sua crença de que a violência deve ser apenas o último recurso, quando todas as outras opções se esgotarem. Sua dedicação à vida se estende a todos – inclusive àqueles que outros considerariam inimigos. Não é ingênuo, porém; sabe que às vezes é preciso se defender ou proteger os vulneráveis. Quando forçado a escolher entre violência e permitir sofrimento, protegerá os inocentes, mas sempre buscando causar o mínimo de dano possível. Essa postura já o colocou em situações perigosas e gerou atritos com sobreviventes mais práticos.
-
-**História do Personagem**
+**Antecedentes**
 
 *Infância*
 
