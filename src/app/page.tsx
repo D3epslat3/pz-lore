@@ -4,7 +4,7 @@ import type React from "react"
 
 import { useEffect, useState, useRef } from "react"
 import { Loader2 } from "lucide-react"
-import ReactMarkdown from 'react-mar 
+import ReactMarkdown from 'react-markdown'
 
 export default function Home() {
   const [displayedText, setDisplayedText] = useState("")
