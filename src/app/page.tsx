@@ -57,13 +57,11 @@ Najimi cresceu em um bairro tranquilo de Tóquio, filho único de um professor e
 
 Antes da catástrofe de 1993, Najimi era médico generalista no Hospital Metropolitano de Tóquio. Não era famoso nem revolucionário – apenas dedicado, competente e confiável. Preferia os setores mais agitados, como o pronto-socorro, onde podia ajudar o maior número possível de pessoas. Era conhecido pela calma inabalável mesmo no caos e por sempre arranjar tempo para explicar diagnósticos aos pacientes assustados.
 
-Com 28 anos quando o Catalisador A-7 foi lançado, Najimi começava a ganhar reconhecimento entre colegas por sua ética e empatia. Não sonhava com cargos administrativos – estava feliz ajudando diretamente quem precisava.
+Com 28 anos, Najimi começava a ganhar reconhecimento entre colegas por sua ética e empatia. Não sonhava com cargos administrativos – estava feliz ajudando diretamente quem precisava.
 
 *Família e perdas*
 
 A mãe de Najimi havia partido dois anos antes do Colapso, devido a problemas cardíacos, deixando-o sem família direta. Nunca se casou, tendo apenas relacionamentos passageiros que não floresceram devido à sua dedicação quase total ao hospital. Com o tempo, colegas e pacientes regulares se tornaram sua família escolhida.
-
-Quando tudo começou a desmoronar, Najimi estava no meio de um plantão de 36 horas. Continuou trabalhando mesmo quando os primeiros sinais do desastre apareceram, recusando-se a abandonar pacientes graves. Foi nesse caos que agentes da SNC o identificaram como imune ao Catalisador A-7 e ao Vírus Knox, levando-o para um Bunker Florescer. Desde então, carrega o peso de ter sobrevivido enquanto tantos foram deixados para trás.
 
 *Motivação para continuar*
 
@@ -75,7 +73,19 @@ Há também o conforto das conexões humanas que cria. No caos do mundo pós-apo
 
 Najimi não esconde grandes mistérios – sua vida antes do colapso foi bastante comum para um médico dedicado. Seu único "segredo" seria o quanto a morte do pai o afetou, incluindo um período de depressão na adolescência que prefere não compartilhar. Essa experiência pessoal com o sofrimento mental lhe deu uma compreensão profunda da fragilidade psicológica que mantém reservada, temendo que isso possa diminuir a confiança dos pacientes.
 
-Um pequeno detalhe que poucos conhecem: Najimi mantém um diário onde anota meticulosamente o nome de cada pessoa que conseguiu salvar desde o colapso – sua forma de lembrar que, mesmo em um mundo destruído, suas ações ainda têm significado.`
+Um pequeno detalhe que poucos conhecem: Najimi mantém um diário onde anota meticulosamente o nome de cada pessoa que conseguiu salvar desde o colapso – sua forma de lembrar que, mesmo em um mundo destruído, suas ações ainda têm significado.
+
+*Infomações Sintetizadas*
+
+  *Morte do Pai:* A os 10 Anos
+  *Morte da Mãe:* 2 anos antes do colapso
+  *Irmãos:* Não
+  *Cidade Natal:* Toquio (Tokyo)
+
+*Infomações Adicionais*
+  Pos criogenia possovel mudança comportamental.
+`
+
 
   const conclusionText = `ALERTA DE SEGURANÇA:
 
