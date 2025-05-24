@@ -75,15 +75,10 @@ Najimi não esconde grandes mistérios – sua vida antes do colapso foi bastant
 
 Um pequeno detalhe que poucos conhecem: Najimi mantém um diário onde anota meticulosamente o nome de cada pessoa que conseguiu salvar desde o colapso – sua forma de lembrar que, mesmo em um mundo destruído, suas ações ainda têm significado.
 
-*Infomações Sintetizadas*
+*Infomações Adicionais / Observações*
 
-*Morte do Pai:* A os 10 Anos
-*Morte da Mãe:* 2 anos antes do colapso
-*Irmãos:* Não
-*Cidade Natal:* Toquio (Tokyo)
+Pos criogenia possivel mudança comportamental.
 
-*Infomações Adicionais*
-Pos criogenia possovel mudança comportamental.
 `
 
 
