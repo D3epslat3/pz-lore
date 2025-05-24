@@ -37,7 +37,7 @@ export default function Home() {
 > Nível de acesso: RESTRITO`
 
   const subjectInfo = {
-    nome: "Najimi Osana (馴染み オサナ)",
+    nome: "Najimi Kohaku (なじみ 琥珀) ",
     idade: 28,
     genero: "Não Possivel Determinar",
     profissão: "Medico Geral (familiar)",
