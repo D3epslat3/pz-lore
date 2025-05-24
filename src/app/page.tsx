@@ -77,13 +77,13 @@ Um pequeno detalhe que poucos conhecem: Najimi mantém um diário onde anota met
 
 *Infomações Sintetizadas*
 
-  *Morte do Pai:* A os 10 Anos
-  *Morte da Mãe:* 2 anos antes do colapso
-  *Irmãos:* Não
-  *Cidade Natal:* Toquio (Tokyo)
+*Morte do Pai:* A os 10 Anos
+*Morte da Mãe:* 2 anos antes do colapso
+*Irmãos:* Não
+*Cidade Natal:* Toquio (Tokyo)
 
 *Infomações Adicionais*
-  Pos criogenia possovel mudança comportamental.
+Pos criogenia possovel mudança comportamental.
 `
 
 
