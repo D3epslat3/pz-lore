@@ -49,33 +49,33 @@ export default function Home() {
 
 **Antecedentes**
 
-*Infância*
+***Infância***
 
 Najimi cresceu em um bairro tranquilo de Tóquio, filho único de um professor e uma enfermeira. Teve uma infância feliz, cercada de estudos, amigos e uma curiosidade natural sobre como as coisas funcionavam. Aos 10 anos, sua vida mudou para sempre quando perdeu o pai para uma doença rara e agressiva. Depois do funeral, encontrou os diários do pai, cheios de anotações sobre sua doença e questionamentos sobre o tratamento recebido. Foi ali, entre lágrimas e páginas amareladas, que decidiu se tornar médico – não por fama ou revolução, mas para estar presente quando alguém, como seu pai, mais precisasse.
 
-*Vida antes da queda*
+***Vida antes da queda / Momentos antes da queda***
 
-Antes da catástrofe de 1993, Najimi era médico generalista no Hospital Metropolitano de Tóquio. Não era famoso nem revolucionário – apenas dedicado, competente e confiável. Preferia os setores mais agitados, como o pronto-socorro, onde podia ajudar o maior número possível de pessoas. Era conhecido pela calma inabalável mesmo no caos e por sempre arranjar tempo para explicar diagnósticos aos pacientes assustados.
+Antes da catástrofe, Najimi era médico generalista no Hospital Metropolitano de Tóquio. Não era famoso nem revolucionário – apenas dedicado, competente e confiável. Preferia os setores mais agitados, como o pronto-socorro, onde podia ajudar o maior número possível de pessoas. Era conhecido pela calma inabalável mesmo no caos e por sempre arranjar tempo para explicar diagnósticos aos pacientes assustados.
 
-Com 28 anos, Najimi começava a ganhar reconhecimento entre colegas por sua ética e empatia. Não sonhava com cargos administrativos – estava feliz ajudando diretamente quem precisava.
+Apos alguns momentos é tocado um alarme sonoro "Por favor, Doutores comparação a sala de segurança", apos isso Najimi  e alguns médicos foram direcionados para uma ambulância e levado para um avião(preparado pelo governo para fazer resgate de pessoas) que atravessou o planeta ate um dos Bunkers Floreser.
 
-*Família e perdas*
+***Família e perdas***
 
 A mãe de Najimi havia partido dois anos antes do Colapso, devido a problemas cardíacos, deixando-o sem família direta. Nunca se casou, tendo apenas relacionamentos passageiros que não floresceram devido à sua dedicação quase total ao hospital. Com o tempo, colegas e pacientes regulares se tornaram sua família escolhida.
 
-*Motivação para continuar*
+***Motivação para continuar***
 
 O que faz Najimi seguir em frente é simples: a necessidade de ajudar. Num mundo onde médicos treinados são raros, suas habilidades nunca foram tão necessárias. Acredita que enquanto houver quem precise de cuidados, tem a obrigação de continuar. Não se vê como herói, apenas como alguém cumprindo seu dever – fazer aquilo para o qual foi treinado.
 
 Há também o conforto das conexões humanas que cria. No caos do mundo pós-apocalíptico, cuidar dos outros forma laços que preenchem, em parte, o vazio deixado pela família perdida. Cada vida salva é uma pequena luz contra a escuridão que ameaça engoli-lo quando pensa em tudo que se perdeu.
 
-*Segredos e passado*
+***Segredos e passado***
 
 Najimi não esconde grandes mistérios – sua vida antes do colapso foi bastante comum para um médico dedicado. Seu único "segredo" seria o quanto a morte do pai o afetou, incluindo um período de depressão na adolescência que prefere não compartilhar. Essa experiência pessoal com o sofrimento mental lhe deu uma compreensão profunda da fragilidade psicológica que mantém reservada, temendo que isso possa diminuir a confiança dos pacientes.
 
 Um pequeno detalhe que poucos conhecem: Najimi mantém um diário onde anota meticulosamente o nome de cada pessoa que conseguiu salvar desde o colapso – sua forma de lembrar que, mesmo em um mundo destruído, suas ações ainda têm significado.
 
-*Infomações Adicionais / Observações*
+***Infomações Adicionais / Observações***
 
 Pos criogenia possivel mudança comportamental.
 
