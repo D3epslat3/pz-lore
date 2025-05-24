@@ -1,103 +1,365 @@
-import Image from "next/image";
+'use client'
+
+import type React from "react"
+
+import { useEffect, useState, useRef } from "react"
+import { Loader2 } from "lucide-react"
+import ReactMarkdown from 'react-mar 
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [displayedText, setDisplayedText] = useState("")
+  const [step, setStep] = useState<
+    "system" | "intro" | "input1" | "info" | "input2" | "lore" | "input3" | "conclusion"
+  >("system")
+  const [input1, setInput1] = useState("")
+  const [input2, setInput2] = useState("")
+  const [input3, setInput3] = useState("")
+  const [infoVisible, setInfoVisible] = useState(false)
+  const [loreVisible, setLoreVisible] = useState(false)
+  const [conclusionVisible, setConclusionVisible] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  // Refs for input focus
+  const input1Ref = useRef<HTMLInputElement>(null)
+  const input2Ref = useRef<HTMLInputElement>(null)
+  const input3Ref = useRef<HTMLInputElement>(null)
+  const terminalRef = useRef<HTMLDivElement>(null)
+
+  const systemText = `> Iniciando protocolo de segurança S.O.L.A.R.A...
+> Verificando integridade do sistema...
+> Conexão com servidor central: COMPROMETIDA
+> Energia auxiliar: ATIVA
+> Sobreviventes na instalação: Informaçõe indisponível
+> Acessando banco de dados de emergência...`
+
+  const introText = `> Banco de Dados - Sujeito nº 015
+> Carregando registros...
+> Nível de acesso: RESTRITO`
+
+  const subjectInfo = {
+    nome: "Najimi Osana (馴染み オサナ)",
+    idade: 28,
+    genero: "Não Possivel Determinar",
+    profissão: "Medico Geral (familiar)",
+    nacionalidade: "Japones",
+    status: "Em criogenia",
+  }
+
+  const loreText = `
+**Personalidade**
+
+Najimi tem um coração enorme e uma impressionante capacidade de conexão com seus pacientes. Trabalhando como médico em um hospital agitado de Tóquio, desenvolveu um olhar atento e uma empatia natural, sempre pronto para estender a mão a quem precisa. O que mais chama atenção em Najimi é como consegue se adaptar a cada situação – firme quando necessário, acolhedor quando apropriado. Essa adaptabilidade, cultivada ao longo da vida, se reflete até em sua expressão de gênero intencionalmente ambígua, permitindo que seja exatamente o que cada pessoa precisa nos momentos de fragilidade.
+
+**Maiores medos e traumas**
+
+O coração de Najimi ainda carrega a dor de ter perdido o pai aos 10 anos, vítima de uma doença que os médicos não conseguiram diagnosticar a tempo. Essa perda profunda despertou nele dois grandes medos: falhar com aqueles que dependem de seus conhecimentos e sentir-se impotente diante do incontrolável. Após o fim do mundo como conhecíamos, esses medos só cresceram – agora, Najimi vive com o pavor de não conseguir salvar vidas por falta de recursos e de ver seu conhecimento se tornar obsoleto diante das novas doenças que surgiram após o colapso.
+
+**Valores e princípios**
+
+"Cure quando puder, conforte quando não puder" – essa é a adaptação que Najimi fez do clássico princípio hipocrático para os tempos difíceis em que vive. Acredita, do fundo do coração, que medicina vai muito além de salvar vidas; trata-se de preservar a dignidade humana mesmo nas piores circunstâncias. Valoriza a honestidade compassiva – dizer a verdade sem destruir a esperança. Mesmo quando os recursos são escassos, mantém-se fiel ao princípio de que todos merecem cuidados, independentemente de quem sejam ou do que tenham feito antes.
+
+**Papel social**
+
+No fundo, Najimi é um líder por natureza, mas do tipo que serve aos outros. Nos tempos de hospital, não buscava cargos de chefia, mas era a quem todos recorriam durante emergências. Em meio ao caos, assume naturalmente o comando, distribuindo tarefas e mantendo a calma quando tudo parece desmoronar. Sua liderança não vem da busca por poder, mas da consciência de que seu conhecimento salva vidas quando aplicado no momento certo. Por isso, até os mais desconfiados acabam seguindo suas orientações, reconhecendo que Najimi age por dever e amor ao próximo, nunca por ambição pessoal.
+
+**Maiores habilidades práticas**
+
+- **Medicina generalista:** Seu treinamento como médico de emergência e clínica geral se tornou um tesouro inestimável após o colapso.
+- **Medicina improvisada:** Desenvolveu o dom de criar soluções médicas com o mínimo disponível, habilidade aperfeiçoada durante períodos de escassez.
+- **Diagnóstico rápido:** Anos no pronto-socorro o transformaram em alguém capaz de identificar problemas graves com pouquíssima informação.
+- **Farmacologia prática:** Conhece profundamente medicamentos, seus substitutos e alternativas quando o ideal não está à mão.
+- **Procedimentos básicos:** Domina suturas e cirurgias menores, resultado de incontáveis horas de plantão.
+- **Gerenciamento de crise:** Mantém a serenidade e toma decisões rápidas no olho do furacão, qualidade forjada no ambiente hospitalar.
+
+**Orientação moral**
+
+O coração pacifista de Najimi resiste até mesmo ao fim do mundo. Mantém firme sua crença de que a violência deve ser apenas o último recurso, quando todas as outras opções se esgotarem. Sua dedicação à vida se estende a todos – inclusive àqueles que outros considerariam inimigos. Não é ingênuo, porém; sabe que às vezes é preciso se defender ou proteger os vulneráveis. Quando forçado a escolher entre violência e permitir sofrimento, protegerá os inocentes, mas sempre buscando causar o mínimo de dano possível. Essa postura já o colocou em situações perigosas e gerou atritos com sobreviventes mais práticos.
+
+**História do Personagem**
+
+*Infância*
+
+Najimi cresceu em um bairro tranquilo de Tóquio, filho único de um professor e uma enfermeira. Teve uma infância feliz, cercada de estudos, amigos e uma curiosidade natural sobre como as coisas funcionavam. Aos 10 anos, sua vida mudou para sempre quando perdeu o pai para uma doença rara e agressiva. Depois do funeral, encontrou os diários do pai, cheios de anotações sobre sua doença e questionamentos sobre o tratamento recebido. Foi ali, entre lágrimas e páginas amareladas, que decidiu se tornar médico – não por fama ou revolução, mas para estar presente quando alguém, como seu pai, mais precisasse.
+
+*Vida antes da queda*
+
+Antes da catástrofe de 1993, Najimi era médico generalista no Hospital Metropolitano de Tóquio. Não era famoso nem revolucionário – apenas dedicado, competente e confiável. Preferia os setores mais agitados, como o pronto-socorro, onde podia ajudar o maior número possível de pessoas. Era conhecido pela calma inabalável mesmo no caos e por sempre arranjar tempo para explicar diagnósticos aos pacientes assustados.
+
+Com 28 anos quando o Catalisador A-7 foi lançado, Najimi começava a ganhar reconhecimento entre colegas por sua ética e empatia. Não sonhava com cargos administrativos – estava feliz ajudando diretamente quem precisava.
+
+*Família e perdas*
+
+A mãe de Najimi havia partido dois anos antes do Colapso, devido a problemas cardíacos, deixando-o sem família direta. Nunca se casou, tendo apenas relacionamentos passageiros que não floresceram devido à sua dedicação quase total ao hospital. Com o tempo, colegas e pacientes regulares se tornaram sua família escolhida.
+
+Quando tudo começou a desmoronar, Najimi estava no meio de um plantão de 36 horas. Continuou trabalhando mesmo quando os primeiros sinais do desastre apareceram, recusando-se a abandonar pacientes graves. Foi nesse caos que agentes da SNC o identificaram como imune ao Catalisador A-7 e ao Vírus Knox, levando-o para um Bunker Florescer. Desde então, carrega o peso de ter sobrevivido enquanto tantos foram deixados para trás.
+
+*Motivação para continuar*
+
+O que faz Najimi seguir em frente é simples: a necessidade de ajudar. Num mundo onde médicos treinados são raros, suas habilidades nunca foram tão necessárias. Acredita que enquanto houver quem precise de cuidados, tem a obrigação de continuar. Não se vê como herói, apenas como alguém cumprindo seu dever – fazer aquilo para o qual foi treinado.
+
+Há também o conforto das conexões humanas que cria. No caos do mundo pós-apocalíptico, cuidar dos outros forma laços que preenchem, em parte, o vazio deixado pela família perdida. Cada vida salva é uma pequena luz contra a escuridão que ameaça engoli-lo quando pensa em tudo que se perdeu.
+
+*Segredos e passado*
+
+Najimi não esconde grandes mistérios – sua vida antes do colapso foi bastante comum para um médico dedicado. Seu único "segredo" seria o quanto a morte do pai o afetou, incluindo um período de depressão na adolescência que prefere não compartilhar. Essa experiência pessoal com o sofrimento mental lhe deu uma compreensão profunda da fragilidade psicológica que mantém reservada, temendo que isso possa diminuir a confiança dos pacientes.
+
+Um pequeno detalhe que poucos conhecem: Najimi mantém um diário onde anota meticulosamente o nome de cada pessoa que conseguiu salvar desde o colapso – sua forma de lembrar que, mesmo em um mundo destruído, suas ações ainda têm significado.`
+
+  const conclusionText = `ALERTA DE SEGURANÇA:
+
+Este terminal faz parte do Protocolo S.O.L.A.R.A. 
+
+É bem provavel que caso você esteja lendo isso, a algum projeto de retirar pessoas da criogenia.
+
+Terminal rodando em modo de emergência. Verifique com atenção os dados fornecidos.
+
+Powed by Deepslate Technologies.`
+
+  // Auto-scroll to bottom when content changes
+  useEffect(() => {
+    if (terminalRef.current) {
+      terminalRef.current.scrollTop = terminalRef.current.scrollHeight
+    }
+  }, [displayedText, infoVisible, loreVisible, conclusionVisible, step])
+
+  // Focus inputs when steps change
+  useEffect(() => {
+    if (step === "input1" && input1Ref.current) {
+      setTimeout(() => input1Ref.current?.focus(), 100)
+    } else if (step === "input2" && input2Ref.current) {
+      setTimeout(() => input2Ref.current?.focus(), 100)
+    } else if (step === "input3" && input3Ref.current) {
+      setTimeout(() => input3Ref.current?.focus(), 100)
+    }
+  }, [step])
+
+  useEffect(() => {
+    if (step === "system" || step === "intro") {
+      const text = step === "system" ? systemText : introText
+      let i = 0
+      setIsLoading(true)
+
+      const interval = setInterval(() => {
+        setDisplayedText((t) => t + text[i])
+        i++
+        if (i >= text.length) {
+          clearInterval(interval)
+          setIsLoading(false)
+          setTimeout(() => {
+            setDisplayedText((t) => t + "\n")
+            setStep(step === "system" ? "intro" : "input1")
+          }, 800)
+        }
+      }, 30)
+
+      return () => clearInterval(interval)
+    }
+  }, [step, systemText, introText])
+
+  const handleInput1 = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const value = input1.trim().toLowerCase()
+
+    if (value === "y") {
+      setInfoVisible(true)
+      setDisplayedText((t) => t + `\n> Comando aceito: ${value}\n> Exibindo informações do sujeito...\n`)
+      setTimeout(() => setStep("input2"), 1000)
+    } else if (value === "n") {
+      setDisplayedText(
+        (t) => t + `\n> Comando aceito: ${value}\n> Acesso negado. Reinicie o terminal para tentar novamente.`,
+      )
+    } else {
+      setDisplayedText((t) => t + `\n> Comando inválido: ${value}\n> Use 'y' para sim ou 'n' para não.`)
+    }
+
+    setInput1("")
+  }
+
+  const handleInput2 = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const value = input2.trim().toLowerCase()
+
+    if (value === "y") {
+      setLoreVisible(true)
+      setDisplayedText((t) => t + `\n> Comando aceito: ${value}\n> Acessando relatório de incidente...\n`)
+      setTimeout(() => setStep("input3"), 1000)
+    } else if (value === "n") {
+      setDisplayedText((t) => t + `\n> Comando aceito: ${value}\n> Arquivo confidencial ignorado.`)
+      setTimeout(() => setStep("input3"), 1000)
+    } else {
+      setDisplayedText((t) => t + `\n> Comando inválido: ${value}\n> Use 'y' para sim ou 'n' para não.`)
+    }
+
+    setInput2("")
+  }
+
+  const handleInput3 = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const value = input3.trim().toLowerCase()
+
+    if (value === "y") {
+      setConclusionVisible(true)
+      setDisplayedText((t) => t + `\n> Comando aceito: ${value}\n> Exibindo instruções finais...\n`)
+    } else if (value === "n") {
+      setDisplayedText((t) => t + `\n> Comando aceito: ${value}\n> Desligando terminal...`)
+    } else {
+      setDisplayedText((t) => t + `\n> Comando inválido: ${value}\n> Use 'y' para sim ou 'n' para não.`)
+    }
+
+    setInput3("")
+  }
+
+  return (
+    <div className="h-screen w-screen flex flex-col bg-black">
+      {/* CRT Top Edge */}
+      <div className="w-full h-[20px] bg-[#1a1a1a] border-b-[3px] border-[#111] shadow-[0_5px_15px_rgba(51,255,51,0.4)] relative z-30">
+        <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_right,rgba(51,255,51,0.1),rgba(51,255,51,0.2),rgba(51,255,51,0.1))]"></div>
+        <div className="flex justify-between items-center h-full px-4">
+          <div className="w-3 h-3 rounded-full bg-[#ff3333] animate-pulse"></div>
+          <div className="text-[10px] text-[#33ff33] font-bold">S.O.L.A.R.A TERMINAL v3.07</div>
+          <div className="w-3 h-3 rounded-full bg-[#33ff33] animate-pulse"></div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      </div>
+
+      {/* Terminal Content Container */}
+      <div className="flex-1 relative flex flex-col overflow-hidden">
+        {/* Terminal Header - Fixed */}
+        <div className="sticky top-0 z-30 bg-black bg-opacity-90 backdrop-blur-sm border-b border-[#33ff33] pb-2 pt-2 px-4 md:px-6 flex justify-between">
+          <span>TERMINAL://S.O.L.A.R.A/SECURE_ACCESS</span>
+          <span className="flex items-center">
+            {isLoading && <Loader2 className="animate-spin mr-2 h-4 w-4" />}
+            {isLoading ? "PROCESSANDO" : "PRONTO"}
+          </span>
+        </div>
+
+        {/* Scrollable Content Area */}
+        <div
+          ref={terminalRef}
+          className="flex-1 overflow-y-auto p-4 md:p-6 text-[#33ff33] font-mono text-sm md:text-base relative"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          {/* Scanline effect */}
+          <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-20 after:content-[''] after:absolute after:top-0 after:w-full after:h-[2px] after:bg-[rgba(0,255,0,0.2)] after:animate-[scan_4s_linear_infinite]"></div>
+
+          {/* CRT lines effect */}
+          <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-10 before:content-[''] before:absolute before:inset-0 before:bg-[repeating-linear-gradient(to_bottom,rgba(0,255,0,0.05),rgba(0,255,0,0.05)_2px,transparent_2px,transparent_4px)]"></div>
+
+          {/* CRT glow effect */}
+          <div className="fixed top-0 left-0 w-full h-full pointer-events-none opacity-50 z-5 shadow-[inset_0_0_60px_rgba(51,255,51,0.3)]"></div>
+
+          {/* Terminal Content */}
+          <div className="relative z-25 min-h-full">
+            <div className="whitespace-pre-wrap">{displayedText}</div>
+
+            {step === "input1" && (
+              <form onSubmit={handleInput1} className="mt-4 flex items-center">
+                <label htmlFor="input1" className="mr-2">
+                  {">"} Exibir informações do sujeito? [y/n]:
+                </label>
+                <input
+                  ref={input1Ref}
+                  id="input1"
+                  type="text"
+                  className="bg-transparent border-none outline-none text-[#33ff33] w-24 ml-2 border-b border-[#33ff33] focus:border-[#ffcc00]"
+                  value={input1}
+                  onChange={(e) => setInput1(e.target.value)}
+                  maxLength={1}
+                  autoFocus
+                />
+                <button type="submit" className="sr-only">
+                  Enviar
+                </button>
+              </form>
+            )}
+
+            {infoVisible && (
+              <div className="mt-4 border border-[#33ff33] p-3 bg-[rgba(0,50,0,0.3)]">
+                <p className="text-[#ffcc00] mb-2">{">"} ARQUIVO PESSOAL - CONFIDENCIAL</p>
+                <p>
+                  {">"} Nome: {subjectInfo.nome}
+                </p>
+                <p>
+                  {">"} Idade: {subjectInfo.idade}
+                </p>
+                <p>
+                  {">"} Gênero: {subjectInfo.genero}
+                </p>
+                <p>
+                  {">"} Função: {subjectInfo.profissão}
+                </p>
+                <p>
+                  {">"} Nacionalidade: {subjectInfo.nacionalidade}
+                </p>
+                <p className="text-[#ff3333] mt-2">
+                  {">"} Status: {subjectInfo.status}
+                </p>
+              </div>
+            )}
+
+            {step === "input2" && (
+              <form onSubmit={handleInput2} className="mt-4 flex items-center">
+                <label htmlFor="input2" className="mr-2">
+                  {">"} Acessar relatório de incidente? [y/n]:
+                </label>
+                <input
+                  ref={input2Ref}
+                  id="input2"
+                  type="text"
+                  className="bg-transparent border-none outline-none text-[#33ff33] w-24 ml-2 border-b border-[#33ff33] focus:border-[#ffcc00]"
+                  value={input2}
+                  onChange={(e) => setInput2(e.target.value)}
+                  maxLength={1}
+                  autoFocus
+                />
+                <button type="submit" className="sr-only">
+                  Enviar
+                </button>
+              </form>
+            )}
+
+            {loreVisible && (
+              <div className="mt-4 border-l-4 border-[#33ff33] pl-3 bg-[rgba(0,50,0,0.2)]">
+                <p className="mb-3 text-[#ffcc00]">{">"} RELATÓRIO DE INCIDENTE - NÍVEL VERMELHO</p>
+                <div className="prose prose-sm prose-green max-w-none">
+                  <ReactMarkdown>{loreText}</ReactMarkdown>
+                </div>
+              </div>
+            )}
+
+            {step === "input3" && (
+              <form onSubmit={handleInput3} className="mt-4 flex items-center">
+                <label htmlFor="input3" className="mr-2">
+                  {">"} Exibir instruções finais? [y/n]:
+                </label>
+                <input
+                  ref={input3Ref}
+                  id="input3"
+                  type="text"
+                  className="bg-transparent border-none outline-none text-[#33ff33] w-24 ml-2 border-b border-[#33ff33] focus:border-[#ffcc00]"
+                  value={input3}
+                  onChange={(e) => setInput3(e.target.value)}
+                  maxLength={1}
+                  autoFocus
+                />
+                <button type="submit" className="sr-only">
+                  Enviar
+                </button>
+              </form>
+            )}
+
+            {conclusionVisible && (
+              <div className="mt-4 border border-[#ff3333] p-3 bg-[rgba(50,0,0,0.3)] text-[#ff3333]">
+                <p className="mb-2 font-bold">{conclusionText.split("\n\n")[0]}</p>
+                <p className="mb-2">{conclusionText.split("\n\n")[1]}</p>
+                <p className="mb-2">{conclusionText.split("\n\n")[2]}</p>
+                <p className="font-bold">{conclusionText.split("\n\n")[3]}</p>
+              </div>
+            )}
+
+            {/* Add some bottom padding for better scrolling */}
+            <div className="h-20"></div>
+          </div>
+        </div>
+      </div>
     </div>
-  );
+  )
 }
